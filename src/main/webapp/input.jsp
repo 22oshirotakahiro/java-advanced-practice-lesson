@@ -3,6 +3,10 @@
 <%
     // 必要な処理を記述してください。
 
+	if (request.getParameter("btn").equals("reset")) {
+		session.removeAttribute("users");
+	}
+
 %>
 <!DOCTYPE html>
 <html>

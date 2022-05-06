@@ -3,6 +3,31 @@
   pageEncoding="UTF-8"%>
 <%
   //必要な処理を記述してください。
+	String userId = request.getParameter("userId");
+	String userName = request.getParameter("userName");
+	String ageStr = request.getParameter("age");
+	int age = 0;
+	if (ageStr != null || !ageStr.isEmpty()) {
+		age = Integer.parseInt(ageStr);
+	}
+	
+	User user = new User(userId, userName, age);
+	
+	User[] users = (User[])session.getAttribute("users");
+	if (users == null) {
+		users = new User[5];
+	}
+	
+	String result = "これ以上登録できません";
+	for (int i = 0; i < users.length; i++) {
+		if (users[i] == null) {
+			users[i] = user;
+			result = "ユーザーを登録しました";
+			break;
+		}
+	}
+
+	
 
 %>
 <!DOCTYPE html>
@@ -54,7 +79,7 @@ a.button {
                 // todo:
                 // 現在は変数のみ定義している。
                 // Userクラスの情報取得用メソッドを呼んだ値をセットするように修正。
-                String msg = "";
+                String msg = tempUser.returnUserInfo();
 
                 // ユーザー情報表示
                 out.println(msg);
