@@ -1,8 +1,10 @@
 <%@ page import="app.GameApp"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+  
+<%-- <%
     request.setCharacterEncoding("UTF-8");
     String name = request.getParameter("name");
 
@@ -13,7 +15,7 @@
     if (name != null && !name.isEmpty()) {
     	result = ga1.start(name);
     }
-%>
+%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,10 +43,14 @@ body {
 
   <div class="result">
     <h3>アプリの実行結果</h3>
-    <p><%=result%></p>
+    	<p>
+    		<c:if test="${not empty result}">
+    			<c:out value="${requestScope.result}" />
+    		</c:if>
+    	</p>
   </div>
 
-  <form action="appStart.jsp" method="post">
+  <form action="StartAppServlet" method="post">
     <label>ユーザ名：</label>
     <input type="text" name="name">
     <br>
