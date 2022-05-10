@@ -37,9 +37,7 @@ body {
 </head>
 <body>
 
-  <h1>Java応用 - 演習問題1</h1>
-
-  <h2>ゲームアプリ実行ページ</h2>
+  <h1>ゲームアプリ実行ページ</h1>
 
   <div class="result">
     <h3>アプリの実行結果</h3>
@@ -51,8 +49,13 @@ body {
   </div>
 
   <form action="StartAppServlet" method="post">
-    <label>ユーザ名：</label>
+    <label>名前：</label>
     <input type="text" name="name">
+    <br>
+    <span>アプリ：
+    <label><input type="radio" name="app" value="card" checked>トランプ</label>
+    <label><input type="radio" name="app" value="game">ゲーム</label>
+    </span>
     <br>
     <button type="submit">実行</button>
   </form>

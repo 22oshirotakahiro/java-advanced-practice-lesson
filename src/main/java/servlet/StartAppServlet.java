@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.GameApp;
+import app.CardGameApp;
 
 /**
  * Servlet implementation class StartAppServlet
@@ -32,11 +32,18 @@ public class StartAppServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		GameApp ga1 = new GameApp("何か");
+		String app = request.getParameter("app");
 		String name = request.getParameter("name");
 		String result = "";
-		if (name != null || !name.isEmpty()) {
-			result = ga1.start(name);
+		
+		CardGameApp cga1 = null;
+		if (app != null || !app.isEmpty()) {
+			cga1 = new CardGameApp(app);
+		}
+		if (name == null || name.isEmpty()) {
+			result = null;
+		} else {
+			result = cga1.start(name);
 		}
 		request.setAttribute("result", result);
 		
