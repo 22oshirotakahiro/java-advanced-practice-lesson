@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.CardGameApp;
+import app.GameApp;
 
 /**
  * Servlet implementation class StartAppServlet
@@ -32,18 +33,21 @@ public class StartAppServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		String app = request.getParameter("app");
 		String name = request.getParameter("name");
+		String app = request.getParameter("app");
 		String result = "";
 		
-		CardGameApp cga1 = null;
-		if (app != null || !app.isEmpty()) {
-			cga1 = new CardGameApp(app);
-		}
 		if (name == null || name.isEmpty()) {
 			result = null;
 		} else {
-			result = cga1.start(name);
+			switch (app) {
+			case "card":
+				result = new CardGameApp("トランプ").start(name);
+				break;
+			case "game":
+				result = new GameApp("何か").start(name);
+				break;
+			}
 		}
 		request.setAttribute("result", result);
 		

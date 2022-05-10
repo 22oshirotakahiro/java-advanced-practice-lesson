@@ -5,15 +5,8 @@ public class CardGameApp extends GameApp {
 	public CardGameApp() {
 		super();
 	}
-	public CardGameApp(String s) {
-		super();
-		if ("card".equals(s)) {
-			this.item = "トランプ";
-		} else if ("game".equals(s)) {
-			this.item = "何か";
-		} else {
-			this.item = "";
-		}
+	public CardGameApp(String item) {
+		super(item);
 	}
 	
 	@Override
