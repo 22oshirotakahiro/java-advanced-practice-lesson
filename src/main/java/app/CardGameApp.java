@@ -10,8 +10,8 @@ public class CardGameApp extends GameApp {
 	}
 	
 	@Override
-	public String start(String name) {
-		String str = name + "さんと" + this.item + "でゲームを開始します。ババ抜きを行います。";
-		return str;
+	public String play() {
+		return "ババ抜きを行います";
 	}
+	
 }

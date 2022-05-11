@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.CardGameApp;
-import app.GameApp;
+import app.ClockApp;
+import app.DartsGameApp;
 
 /**
  * Servlet implementation class StartAppServlet
@@ -23,15 +24,12 @@ public class StartAppServlet extends HttpServlet {
      */
     public StartAppServlet() {
     	super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String name = request.getParameter("name");
 		String app = request.getParameter("app");
@@ -41,11 +39,19 @@ public class StartAppServlet extends HttpServlet {
 			result = null;
 		} else {
 			switch (app) {
-			case "card":
-				result = new CardGameApp("トランプ").start(name);
+			case "CardGameApp":
+				CardGameApp cga = new CardGameApp("トランプ");
+				result = cga.start(name) + cga.play();
 				break;
-			case "game":
-				result = new GameApp("何か").start(name);
+			case "DartsGameApp":
+				DartsGameApp dga = new DartsGameApp("ダーツ");
+				result = dga.start(name) + dga.play();
+				break;
+			case "ClockApp":
+				result = new ClockApp().start(name);
+				break;
+			case "others":
+				
 				break;
 			}
 		}
@@ -58,7 +64,6 @@ public class StartAppServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

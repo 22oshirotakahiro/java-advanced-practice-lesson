@@ -3,19 +3,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-  
-<%-- <%
-    request.setCharacterEncoding("UTF-8");
-    String name = request.getParameter("name");
 
-    String result = "未実施";
-    
-    GameApp ga1 = new GameApp("何か");
-
-    if (name != null && !name.isEmpty()) {
-    	result = ga1.start(name);
-    }
-%> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +33,9 @@ body {
     		<c:if test="${not empty result}">
     			<c:out value="${requestScope.result}" />
     		</c:if>
+    		<c:if test="${empty result}">
+    			<c:out value="アプリを実行できませんでした" />
+    		</c:if>
     	</p>
   </div>
 
@@ -53,8 +44,10 @@ body {
     <input type="text" name="name">
     <br>
     <span>アプリ：
-    <label><input type="radio" name="app" value="card" checked>トランプ</label>
-    <label><input type="radio" name="app" value="game">ゲーム</label>
+    <label><input type="radio" name="app" value="CardGameApp" checked>トランプ</label>
+    <label><input type="radio" name="app" value="DartsGameApp">ダーツ</label>
+    <label><input type="radio" name="app" value="ClockApp">時計</label>
+    <label><input type="radio" name="app" value="others">その他</label>
     </span>
     <br>
     <button type="submit">実行</button>
