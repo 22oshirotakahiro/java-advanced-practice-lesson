@@ -25,15 +25,14 @@ body {
 
   <h1>Java応用 - 演習問題5-2</h1>
 
+  <h3>実行結果</h3>
   <c:if test="${not empty result}">
     <div class="result">
-      <h3>実行結果</h3>
       <p>${fn:escapeXml(result)}</p>
     </div>
   </c:if>
   <c:if test="${empty result}">
     <div class="result">
-      <h3>実行結果</h3>
       <p>${fn:escapeXml(result)}</p>
     </div>
   </c:if>
