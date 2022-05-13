@@ -31,6 +31,12 @@ body {
       <p>${fn:escapeXml(result)}</p>
     </div>
   </c:if>
+  <c:if test="${empty result}">
+    <div class="result">
+      <h3>実行結果</h3>
+      <p>${fn:escapeXml(result)}</p>
+    </div>
+  </c:if>
 
   <div>
     <h2>単語検索</h2>
