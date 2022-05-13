@@ -1,4 +1,4 @@
-package servlet;
+package jp.co.axiz.servlet;
 
 import java.io.IOException;
 
@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import app.App;
-import app.CardGameApp;
-import app.ClockApp;
-import app.DartsGameApp;
-import app.GameApp;
 import entity.Utility;
+import jp.co.axiz.app.App;
+import jp.co.axiz.app.CardGameApp;
+import jp.co.axiz.app.ClockApp;
+import jp.co.axiz.app.DartsGameApp;
+import jp.co.axiz.app.GameApp;
 
 /**
  * Servlet implementation class StartAppServlet

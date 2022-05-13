@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import app.App;
-import app.CardGameApp;
-import app.ClockApp;
-import app.DartsGameApp;
-import app.GameApp;
+import jp.co.axiz.app.App;
+import jp.co.axiz.app.CardGameApp;
+import jp.co.axiz.app.ClockApp;
+import jp.co.axiz.app.DartsGameApp;
+import jp.co.axiz.app.GameApp;
 
 class AppUtilTest {
 	
