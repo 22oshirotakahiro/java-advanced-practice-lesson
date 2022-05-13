@@ -5,10 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import jp.co.axiz.app.App;
-import jp.co.axiz.app.CardGameApp;
 import jp.co.axiz.app.ClockApp;
-import jp.co.axiz.app.DartsGameApp;
-import jp.co.axiz.app.GameApp;
 
 class AppUtilTest {
 	
@@ -25,36 +22,28 @@ class AppUtilTest {
 	 */
 
 	@Test
-	public void isGameApp() {
-		assertTrue(app instanceof GameApp);
+	public void isGameAppTest() {
+		assertTrue(AppUtil.isGameApp(app));
 	}
 
 	@Test
-	public void isCardGameApp() {
-		assertTrue(app instanceof CardGameApp);
+	public void isCardGameAppTest() {
+		assertTrue(AppUtil.isCardGameApp(app));
 	}
 
 	@Test
-	public void isDartsGameApp() {
-		assertTrue(app instanceof DartsGameApp);
+	public void isDartsGameAppTest() {
+		assertTrue(AppUtil.isDartsGameApp(app));
 	}
 
 	@Test
-	public void isClockApp() {
-		assertTrue(app instanceof ClockApp);
+	public void isClockAppTest() {
+		assertTrue(AppUtil.isClockApp(app));
 	}
 
 	@Test
-	public void getAppName() {
-		String appName = "";
-		if (app instanceof CardGameApp) {
-			appName = "ゲーム：カード";
-		} else if (app instanceof DartsGameApp) {
-			appName = "ゲーム：ダーツ";
-		} else if (app instanceof ClockApp) {
-			appName = "時計";
-		}
-		assertEquals("時計", appName);
+	public void getAppNameTest() {
+		assertEquals("時計", AppUtil.getAppName(app));
 	}
 
 }
