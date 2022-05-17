@@ -15,10 +15,10 @@ public class ProductDao {
 	private Connection connection;
 
 	private static final String SQL_SELECT_ALL = "SELECT * FROM products ORDER BY product_id";
-	private static final String SQL_SELECT_WHERE_USER_ID = "SELECT product_id, product_name, price FROM products WHERE id = ?";
+	private static final String SQL_SELECT_WHERE_USER_ID = "SELECT product_id, product_name, price FROM products WHERE product_id = ?";
 	private static final String SQL_INSERT = "INSERT INTO products (product_name, price) VALUES (?, ?)";
 	private static final String SQL_UPDATE = "UPDATE products SET product_name = ?, price = ? WHERE product_id = ?";
-	private static final String SQL_DELETE = "DELETE FROM products WHERE id = ?";
+	private static final String SQL_DELETE = "DELETE FROM products WHERE product_id = ?";
 	private static final String SQL_SELECT_SUMALLPRICE = "SELECT sum(price) FROM products";
 
 	// コンストラクタ
