@@ -22,8 +22,6 @@ public class DbExam4 {
 		
 //		System.out.println("合計金額:" + pd.sumAllPrice());
 		
-		Product p = new Product("ボールペン", 200);
-		pd.insert(p);
 		List<Product> list = pd.findAll();
 		for (int i = 0; i < list.size(); i++) {
 			Product prdct = list.get(i);
@@ -48,7 +46,7 @@ public class DbExam4 {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-
+		
 		return list;
 	}
 
